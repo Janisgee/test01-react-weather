@@ -1,0 +1,30 @@
+.WeatherApp .weatherWrapper {
+    border: 1px solid #c1c1c1;
+    margin: 50px auto 0;
+    max-width: 700px;
+    border-radius: 10px;
+    padding: 30px;
+}
+
+.WeatherApp ul {
+    list-style: none;
+    padding: 0px;
+    color: #6c6c6c;
+}
+
+.WeatherApp img {
+    width: 80px;
+}
+
+.WeatherApp .temperature {
+    font-size: 55px;
+    font-weight: 600;
+}
+
+.WeatherApp .units {
+    font-size: 22px;
+    font-weight: 600;
+    padding-left: 5px;
+    position: relative;
+    bottom: 28px;
+}
