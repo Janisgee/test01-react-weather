@@ -16,7 +16,7 @@ export default function WeatherApp() {
               <div className="float-start">
                 <img
                   src="https://ssl.gstatic.com/onebox/weather/64/sunny_s_cloudy.png"
-                  alt="image"
+                  alt="Partly Cloudy"
                 />
               </div>
               <div className="float-start">
