@@ -1,12 +1,22 @@
 import React from "react";
+import FormattedDate from "./FormattedDate";
+import FormattedSunTime from "./FormattedSunTime";
+import TemperatureConvertion from "./TemperatureConvertion";
 
-export default function WeatherCondition() {
+export default function WeatherCondition(props) {
+  const localTimezoneOffset = new Date().getTimezoneOffset() * -60 * 1000;
   return (
     <div>
-      <h1>New York</h1>
+      <h1>{props.weather.name}</h1>
       <ul>
-        <li>Saturday 12:00 pm</li>
-        <li>Partly Cloudy</li>
+        <li>
+          <FormattedDate
+            time={props.weather.time}
+            localTimezoneOffset={localTimezoneOffset}
+            searchCityTimezoneOffset={props.weather.timezone}
+          />
+        </li>
+        <li className="text-capitalize">{props.weather.description}</li>
       </ul>
       <div className="row">
         <div className="col-6">
@@ -18,17 +28,35 @@ export default function WeatherCondition() {
               />
             </div>
             <div className="float-start">
-              <span className="temperature">23</span>
-              <span className="units">°C | °F</span>
+              <TemperatureConvertion
+                celsius={Math.round(props.weather.temperature)}
+                fahrenheit={
+                  (Math.round(props.weather.temperature) * 9) / 5 + 32
+                }
+              />
             </div>
           </div>
         </div>
         <div className="col-6">
           <ul>
-            <li>Sunrise: 05:35</li>
-            <li>Sunset: 17:40</li>
-            <li>Humidity: 77%</li>
-            <li>Wind: 11km/h</li>
+            <li>
+              Sunrise:{" "}
+              <FormattedSunTime
+                time={props.weather.sunrise}
+                localTimezoneOffset={localTimezoneOffset}
+                searchCityTimezoneOffset={props.weather.timezone}
+              />
+            </li>
+            <li>
+              Sunset:{" "}
+              <FormattedSunTime
+                time={props.weather.sunset}
+                localTimezoneOffset={localTimezoneOffset}
+                searchCityTimezoneOffset={props.weather.timezone}
+              />
+            </li>
+            <li>Humidity: {props.weather.humidity}%</li>
+            <li>Wind: {props.weather.wind}km/h</li>
           </ul>
         </div>
       </div>

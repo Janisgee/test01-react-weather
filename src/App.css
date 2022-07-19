@@ -22,9 +22,14 @@
 }
 
 .WeatherApp .units {
-    font-size: 22px;
+    font-size: 25px;
     font-weight: 600;
     padding-left: 5px;
     position: relative;
     bottom: 28px;
+}
+
+.WeatherApp .units .active {
+    font-size: 20px;
+    text-decoration: none;
 }

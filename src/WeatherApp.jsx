@@ -6,7 +6,7 @@ export default function WeatherApp() {
   return (
     <div className="WeatherApp">
       <div className="container weatherWrapper">
-        <SearchForm city="New York" />
+        <SearchForm defaultCity="Hong Kong" />
       </div>
     </div>
   );
