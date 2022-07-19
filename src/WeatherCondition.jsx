@@ -2,6 +2,7 @@ import React from "react";
 import FormattedDate from "./FormattedDate";
 import FormattedSunTime from "./FormattedSunTime";
 import TemperatureConvertion from "./TemperatureConvertion";
+import WeatherIcon from "./WeatherIcon";
 
 export default function WeatherCondition(props) {
   const localTimezoneOffset = new Date().getTimezoneOffset() * -60 * 1000;
@@ -22,9 +23,9 @@ export default function WeatherCondition(props) {
         <div className="col-6">
           <div className="clearfix">
             <div className="float-start">
-              <img
-                src="https://ssl.gstatic.com/onebox/weather/64/sunny_s_cloudy.png"
-                alt="Partly Cloudy"
+              <WeatherIcon
+                code={props.weather.icon}
+                description={props.weather.description}
               />
             </div>
             <div className="float-start">
